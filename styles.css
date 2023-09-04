@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color:yellowgreen;
+}
+
+h1 {
+  color:#fff;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+.random-image {
+  width: 50px;
+  height: auto;
+  margin: -2.5px;
+  padding: 0px;
+}
+
+.image-container {
+  margin: 5px;
+}
+
+#reset-btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 20px 10px;
+  border: none;
+  background: #0070f3;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#reset-btn:hover {
+  background: #0051a2;
+}
+
+#image-count {
+  font-size: 1.2rem;
+  width: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
