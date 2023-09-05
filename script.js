@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetButton = document.getElementById("reset-btn");
   const images = Array.from(document.getElementsByClassName("random-image"));
   const imageCountInput = document.getElementById("image-count");
+  let lastTouched = 0;
   
   // 画像ファイル名の配列
   const imageFilenames = [
@@ -43,9 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 画像をクリックした場合の処理
   function onImageClick(event) {
-    if (existImageFileNames.length > 0) {
+    const now = new Date();
+    if (existImageFileNames.length > 0 && now.getTime()-lastTouched > 200) {
       let randomIndex = Math.floor(Math.random() * existImageFileNames.length);
       event.target.src = existImageFileNames.splice(randomIndex, 1)[0];
+      lastTouched = now.getTime();
     }
   }
 
