@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   images.forEach((image) => {
     image.addEventListener("click", onImageClick);
+    image.addEventListener("touchend", onImageClick);
   });
   
   imageCountInput.addEventListener("input", setRandomImageSources);
