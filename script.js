@@ -11,13 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
     "Ac.png", "2c.png", "3c.png", "4c.png", "5c.png", "6c.png", "7c.png", "8c.png", "9c.png", "Tc.png", "Jc.png", "Qc.png", "Kc.png"
   ];
 
+  // 残っている画像ファイル名の配列
+  let existImageFileNames = [];
+
   // ランダムな画像ファイル名を取得する
   function getRandomImageFilenames(imageCount) {
     let randomFilenames = [];
-    let currentImageFilenames = imageFilenames.slice(0, imageFilenames.length);
+    existImageFileNames = imageFilenames.slice(0, imageFilenames.length);
     for (let i = 0; i < imageCount*6; i++) {
-      let randomIndex = Math.floor(Math.random() * currentImageFilenames.length);
-      randomFilenames.push(currentImageFilenames.splice(randomIndex, 1)[0]);
+      let randomIndex = Math.floor(Math.random() * existImageFileNames.length);
+      randomFilenames.push(existImageFileNames.splice(randomIndex, 1)[0]);
     }
     return randomFilenames;
   }
@@ -37,6 +40,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
+
+  // 画像をクリックした場合の処理
+  function onImageClick(event) {
+    if (existImageFileNames.length > 0) {
+      let randomIndex = Math.floor(Math.random() * existImageFileNames.length);
+      event.target.src = existImageFileNames.splice(randomIndex, 1)[0];
+    }
+  }
+
+  images.forEach((image) => {
+    image.addEventListener("click", onImageClick);
+  });
   
   imageCountInput.addEventListener("input", setRandomImageSources);
 
