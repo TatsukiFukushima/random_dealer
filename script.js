@@ -47,7 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const now = new Date();
     if (existImageFileNames.length > 0 && now.getTime()-lastTouched > 200) {
       let randomIndex = Math.floor(Math.random() * existImageFileNames.length);
-      event.target.src = existImageFileNames.splice(randomIndex, 1)[0];
+      event.target.src = "gray.png"
+      var setImage = function(event) {
+        return function() {
+          event.target.src = existImageFileNames.splice(randomIndex, 1)[0];
+        };
+      };
+      setTimeout(setImage(event), 100); 
       lastTouched = now.getTime();
     }
   }
