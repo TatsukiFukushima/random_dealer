@@ -13,10 +13,16 @@ label {
 }
 
 .random-image {
-  width: 55px;
-  height: 70px;
+  width: 50px;
+  height: 65px;
   margin: -1px;
   padding: 0px;
+}
+
+.fold-image {
+  width: 50px;
+  height: auto;
+  margin: 5px;
 }
 
 .image-container {

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const imageContainers = Array.from(document.getElementsByClassName("image-container"));
   const resetButton = document.getElementById("reset-btn");
   const images = Array.from(document.getElementsByClassName("random-image"));
+  const foldimages = Array.from(document.getElementsByClassName("fold-image"));
   const imageCountInput = document.getElementById("image-count");
   let lastTouched = 0;
   
@@ -28,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ランダムな画像ファイルを配置する
   function setRandomImageSources() {
+    // ハンドを表示
+    imageContainers.forEach((imageContainer) => {
+      imageContainer.style.display = "";
+    });
+
+    // ランダムなカードの配置
     const imageCount = parseInt(imageCountInput.value);
     const randomFilenames = getRandomImageFilenames(imageCount);
     for (let i = 0; i < 6; i++) {
@@ -58,9 +66,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // foldをクリックした場合の処理
+  function onFoldClick(event) {
+    const now = new Date();
+    if (now.getTime()-lastTouched > 200) {
+      event.target.parentElement.style.display = "none";
+      lastTouched = now.getTime();
+    }
+  }
+
   images.forEach((image) => {
     image.addEventListener("click", onImageClick);
     image.addEventListener("touchend", onImageClick);
+  });
+  foldimages.forEach((foldImage) => {
+    foldImage.addEventListener("click", onFoldClick);
+    foldImage.addEventListener("touchend", onFoldClick);
   });
   
   imageCountInput.addEventListener("input", setRandomImageSources);
