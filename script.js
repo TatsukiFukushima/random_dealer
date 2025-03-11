@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
         image.style.display = "none";
       });
     }
+
+    // ソート
+    onSortClick()
   }
 
   // 画像をクリックした場合の処理
