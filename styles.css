@@ -33,7 +33,7 @@ label {
   display: inline-block;
   font-size: 1.2rem;
   padding: 10px 20px;
-  margin: 20px 10px;
+  margin: 15px 3px;
   border: none;
   background: #0070f3;
   color: #fff;
@@ -42,6 +42,22 @@ label {
 }
 
 #reset-btn:hover {
+  background: #0051a2;
+}
+
+#sort-btn {
+  display: inline-block;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 10px 15px;
+  border: none;
+  background: #0070f3;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#sort-btn:hover {
   background: #0051a2;
 }
 
